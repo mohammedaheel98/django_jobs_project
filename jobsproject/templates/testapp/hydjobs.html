@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/demo.css' %}">
+    <title>Hyderabad Jobs Portal</title>
+</head>
+<body>
+    <h1>Welcome To Hyderabad Jobs Updates</h1>
+    <hr>
+    <img src="{% static 'images/it.jpg' %}">
+    <img src="{% static 'images/it1.jpg' %}">
+    <hr>
+    {% if jobs_list %}
+    <table id="tab">
+        <thead>
+            <th>Date</th>
+            <th>Company</th>
+            <th>Tittle</th>
+            <th>Eligibility</th>
+            <th>Address</th>
+            <th>Email</th>
+            <th>Contact No</th>
+        </thead>
+        {% for job in jobs_list %}
+        <tr>
+            <td>{{job.date}}</td>
+            <td>{{job.company}}</td>
+            <td>{{job.tittle}}</td>
+            <td>{{job.eligbility}}</td>
+            <td>{{job.address}}</td>
+            <td>{{job.email}}</td>
+            <td>{{job.phoneno}}</td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <p>No Job Records Found</p>
+    {% endif %}
+    </table>
+</body>
+</html>
